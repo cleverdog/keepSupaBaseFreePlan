@@ -19,11 +19,8 @@ jobs:
 
       - name: Install ChromeDriver
         run: |
-          # Chromeのバージョンを取得し、メジャーバージョンのみを取得
-          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+' | cut -d '.' -f 1)
-          # ChromeDriverのダウンロードURLをバージョンに応じて決定し、対応するものをインストール
-          wget -N https://chromedriver.storage.googleapis.com/$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION})/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip -d /usr/local/bin/
+          wget -N https://storage.googleapis.com/chrome-for-testing-public/130.0.6723.69/linux64/chromedriver-linux64.zip
+          unzip chromedriver-linux64.zip -d /usr/local/bin/
           chmod +x /usr/local/bin/chromedriver
 
       - name: Install Python dependencies
