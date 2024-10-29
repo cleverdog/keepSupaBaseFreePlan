@@ -11,16 +11,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up ChromeDriver
-        uses: nanasess/setup-chromedriver@v1
-        with:
-          version: '130.0.6723.58'  # Google Chromeに合わせてバージョンを指定
-
-      - name: Install Google Chrome
-        run: |
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo dpkg -i google-chrome-stable_current_amd64.deb
-          sudo apt-get install -f
+      - name: Install ChromeDriver and Chrome
+        uses: browser-actions/setup-chrome@v1
 
       - name: Install Python dependencies
         run: |
